@@ -2,7 +2,11 @@
  * Use newrelic as APM agent
  */
 try {
-  require('newrelic')
+  const newrelic = require('newrelic')
+  // expose newrelic globaly
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-ignore
+  process.newrelic = newrelic
 } catch (error) {
   // eslint-disable-next-line no-console
   console.error("Could not require 'newrelic' module.", { error })
