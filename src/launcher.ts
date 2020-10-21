@@ -1,5 +1,14 @@
-import http from 'http'
-import esmCompiler from 'esm'
+/**
+ * Use newrelic as APM agent
+ */
+try {
+  require('newrelic')
+} catch (error) {
+  // eslint-disable-next-line no-console
+  console.error("Could not require 'newrelic' module.", { error })
+}
+const http = require('http')
+const esmCompiler = require('esm')
 
 const startTime = process.hrtime()
 
@@ -37,7 +46,8 @@ const { Server } = require('http') as typeof http // eslint-disable-line import/
 const { Bridge } = require('./vercel__bridge.js') as typeof import('@vercel/node-bridge/bridge')
 
 const server = new Server(
-  async (req, res) => {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  async (req: any, res: any) => {
     if (!isReady) {
       await readyPromise
     }

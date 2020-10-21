@@ -10,6 +10,12 @@
 [![Dependencies][david-dm-src]][david-dm-href]
 [![Standard JS][standard-js-src]][standard-js-href]
 
+## What This Package Differ From the Original
+
+**It uses `Newrelic` as APM agent.**
+
+## What Does it do?
+
 This Vercel builder takes a [Nuxt.js application](https://nuxtjs.org) defined by a `nuxt.config` entrypoint and deploys it as a serverless function in a Vercel environment.
 
 It features built-in caching of `node_modules` and the yarn global cache (even with dependency changes!) and multi-stage build for fast and small deployments.
